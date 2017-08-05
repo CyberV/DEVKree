@@ -1,0 +1,8 @@
+<div class="mai">
+	<span class="animated" [ngClass]="{'fadeIn':entering, 'fadeOut':exiting}">{{meText}} </span>
+	<span [hidden]="!inputVisible" style="margin-left:-18px;">
+		<span>I </span> <input type="text" [placeholder]="placeholder" class="yourName" [style.width.px]="inputWidth" [(ngModel)]="name" (keyup)="checkName($event)" (keyDown.enter)="moveOn()" />
+		<br/>
+		<span class="animated" [ngClass]="{'hidden':!hasName , 'fadeIn':hasName}" > am here now.</span>
+	</span>
+</div> 

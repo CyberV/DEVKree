@@ -1,0 +1,17 @@
+
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="pause center" >
+				<h1 class="animated" [ngClass]="{'fadeIn':begin, 'hidden':!begin, 'fadeOut':ready }">Pause.</h1>
+				<h1 class="animated" [ngClass]="{'fadeIn':paused && !ready, 'hidden':!paused, 'fadeOut':ready }">Take a breath.</h1>
+			</div>
+			<div *ngIf="ready" class="questions">
+				<question [q]="'Where are you'" [answer]="'Here'" (answered)="firstAnswered=$event"></question>
+				<question *ngIf="firstAnswered" [q]="'What time is it?'" [answer]="'Now'" (answered)="secondAnswered=$event"></question>
+				<question *ngIf="secondAnswered" [q]="'What are you?'" [answer]="'This moment'" (answered)="next()"></question>
+			</div>
+		</div>
+	</div>
+
+
+  

@@ -1,0 +1,25 @@
+.yourName{
+	border: none;
+	background: transparent;
+	border-bottom: 1px solid white;
+	//width:auto;
+	transition: all 1s;
+	//animation: stretchRight linear 1s ;
+	
+	
+	text-transform:capitalize;
+	outline:none;
+	font-weight:normal;
+}
+
+@keyframes stretchRight {
+	from{width:0px;}
+	to{width:250px;}
+}
+
+.mai{
+	font-size:30px;
+	text-align:left;
+	position:relative;
+	top:1em ;
+}

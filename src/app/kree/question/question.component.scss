@@ -1,0 +1,23 @@
+.q{
+margin-top:2em;
+}
+
+.a{
+margin-left:2em;
+font-weight:bold;
+text-transform:none;
+transition: all 2s;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+.answered{
+	margin-left: 12em; 
+	font-size: 16px;
+	font-weight:bolder;
+	color:red;
+}  

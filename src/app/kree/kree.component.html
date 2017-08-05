@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+		<div class="container-fluid animated fadeIn bg" [ngClass]="{'bg':beginPledge}">
+			<this-moment *ngIf="!doPledge" (answered)="beginPledge=$event">
+			</this-moment>
+ 			<div *ngIf="beginPledge && !doPledge" class="row animated fadeIn">
+				<div class="col-xs-12 stage">
+				<div (click)="doPledge=true;" (hover)="alert('asd')" >
+					<div class="block" ></div>
+					<h1 class="btn btnPrimary pledge">Take a pledge</h1>
+				</div>
+				</div> 
+			</div>
+			<pledge *ngIf="doPledge"></pledge> 
+			
+			</div>
+	</div>
+</div> 

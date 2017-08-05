@@ -1,0 +1,21 @@
+.non-mobile{
+position:relative;
+top:250px;
+}
+
+.mobile{
+position:relative;
+top: -800px;
+}
+
+.questions{
+    position: relative;
+    left: 25px;
+}
+
+.center{
+	text-align:center;
+	position:relative;
+	float:none;
+	margin: 0 auto;
+}

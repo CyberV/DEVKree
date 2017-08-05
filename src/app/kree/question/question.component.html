@@ -1,0 +1,5 @@
+<div>
+<div class="q animated" ><h1>{{label}}</h1></div>
+<div *ngIf="showAnswer" class="a animated" [ngClass]="{'fadeIn':(showAnswer && !prompt), 'pulse':(prompt && !hasAnswered), 'answered' : hasAnswered}"><h1 (click)="onClick()">{{answer}}</h1></div>
+</div>
+ 
