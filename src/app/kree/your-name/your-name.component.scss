@@ -1,25 +1,27 @@
 .yourName{
 	border: none;
 	background: transparent;
-	border-bottom: 1px solid white;
-	//width:auto;
-	transition: all 1s;
-	//animation: stretchRight linear 1s ;
-	
-	
-	text-transform:capitalize;
-	outline:none;
-	font-weight:normal;
-}
-
-@keyframes stretchRight {
-	from{width:0px;}
-	to{width:250px;}
+	border-bottom: 1px solid var(--kree-fg);
+	color: var(--kree-fg);
+	transition: width 0.3s ease;
+	text-transform: capitalize;
+	outline: none;
+	font-weight: normal;
+	font-family: inherit;
+	font-size: inherit;
+	padding: 0 2px;
+	box-sizing: border-box;
 }
 
 .mai{
 	font-size:30px;
 	text-align:left;
 	position:relative;
-	top:1em ;
+	top:1em;
+}
+
+.am-here-now {
+	display: inline-block;
+	margin-top: 0.3em;
+	animation: kreeFadeIn 0.3s ease;
 }

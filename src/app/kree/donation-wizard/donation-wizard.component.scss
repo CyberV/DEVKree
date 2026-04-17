@@ -1,0 +1,163 @@
+.wizard {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  text-align: center;
+  color: var(--kree-fg);
+}
+
+.wizard-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem;
+}
+
+.wizard-sub {
+  font-size: 1rem;
+  color: var(--kree-fg-muted);
+  margin: 0 0 2rem;
+}
+
+.wizard-sub.small {
+  font-size: 0.9rem;
+}
+
+.confirm-line em {
+  color: var(--kree-accent);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.kind-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.kind-card,
+.option-card {
+  background: var(--kree-surface);
+  border: 1px solid var(--kree-border);
+  color: var(--kree-fg);
+  border-radius: 14px;
+  padding: 1.25rem;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+}
+
+.kind-card:hover,
+.option-card:hover {
+  background: var(--kree-surface-strong);
+  border-color: var(--kree-accent);
+  transform: translateY(-2px);
+}
+
+.kind-card {
+  text-align: center;
+  padding: 1.75rem 1rem;
+}
+
+.kind-icon {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.kind-label {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.kind-blurb {
+  font-size: 0.85rem;
+  color: var(--kree-fg-muted);
+}
+
+.option-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.opt-icon {
+  font-size: 1.8rem;
+  flex: 0 0 auto;
+}
+
+.opt-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.opt-label {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.opt-blurb {
+  font-size: 0.82rem;
+  color: var(--kree-fg-muted);
+  margin-top: 0.15rem;
+}
+
+.wizard-back,
+.btn-ghost,
+.btn-primary {
+  background: transparent;
+  color: var(--kree-fg);
+  border: 1px solid var(--kree-border);
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.wizard-back:hover,
+.btn-ghost:hover {
+  border-color: var(--kree-accent);
+}
+
+.btn-primary {
+  background: var(--kree-accent);
+  color: #111;
+  border-color: var(--kree-accent);
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.wizard-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .kind-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wizard-title {
+    font-size: 1.6rem;
+  }
+}

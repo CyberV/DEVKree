@@ -1,0 +1,79 @@
+.kree-shell {
+  height: 100vh;
+  background-color: var(--kree-bg);
+  color: var(--kree-fg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.kree-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.brand {
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+.theme-toggle {
+  background: var(--kree-surface);
+  color: var(--kree-fg);
+  border: 1px solid var(--kree-border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--kree-surface-strong);
+  border-color: var(--kree-accent);
+}
+
+.landing-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.take-pledge-wrap {
+  text-align: center;
+  margin-top: 1.5rem;
+  z-index: 5;
+}
+
+.pledge-btn {
+  display: inline-block;
+  font-size: 1.25rem;
+  color: var(--kree-fg);
+  background: transparent;
+  border: 3px solid var(--kree-border);
+  border-radius: 20px;
+  padding: 0.55em 1.4em;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.pledge-btn:hover {
+  color: var(--kree-accent);
+  border-color: var(--kree-accent);
+  padding: 0.65em 1.6em;
+}
+
+@media (max-width: 640px) {
+  .kree-header { padding: 0.75rem 1rem; }
+  .brand { font-size: 1rem; }
+}

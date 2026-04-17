@@ -1,21 +1,76 @@
-.non-mobile{
-position:relative;
-top:250px;
+/* ----- Breathe stage: fills the landing area, centered ----- */
+.breath-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.mobile{
-position:relative;
-top: -800px;
+/* ----- Breathing orb — continuous loop, larger, better contrast ----- */
+.breath-orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    var(--kree-orb-center, rgba(245, 215, 122, 0.45)) 0%,
+    var(--kree-orb-mid, rgba(245, 215, 122, 0.15)) 45%,
+    transparent 70%
+  );
+  box-shadow: 0 0 80px var(--kree-orb-glow, rgba(245, 215, 122, 0.35));
+  transform: scale(0.6);
+  opacity: 0.6;
+  z-index: 0;
+  will-change: transform, opacity;
 }
 
-.questions{
-    position: relative;
-    left: 25px;
+.breath-orb.breathe-in {
+  animation: kreeBreatheIn 4s ease-in-out infinite;
 }
 
-.center{
-	text-align:center;
-	position:relative;
-	float:none;
-	margin: 0 auto;
+.breath-orb.breathe-out {
+  animation: kreeBreatheOut 4s ease-in-out infinite;
+}
+
+@keyframes kreeBreatheIn {
+  0%   { transform: scale(0.55); opacity: 0.4; }
+  50%  { transform: scale(1.2);  opacity: 0.9; }
+  100% { transform: scale(0.55); opacity: 0.4; }
+}
+
+@keyframes kreeBreatheOut {
+  0%   { transform: scale(1.2);  opacity: 0.9; }
+  50%  { transform: scale(0.55); opacity: 0.4; }
+  100% { transform: scale(1.2);  opacity: 0.9; }
+}
+
+/* ----- Overlay: questions and pause text centered over the orb ----- */
+.overlay-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.pause {
+  position: relative;
+}
+
+.pause h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+}
+
+.questions {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .breath-orb { width: 220px; height: 220px; }
+  .pause h1 { font-size: 1.7rem; }
 }

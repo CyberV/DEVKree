@@ -1,0 +1,97 @@
+<div class="wizard animated fadeIn">
+
+  <ng-container *ngIf="step === 1">
+    <h2 class="wizard-title">How do you want to act on it?</h2>
+    <p class="wizard-sub">
+      You pledged. Now pick the shape your contribution will take.
+    </p>
+
+    <div class="kind-grid">
+      <button
+        type="button"
+        class="kind-card"
+        data-testid="donate-time"
+        (click)="chooseKind('time')"
+      >
+        <div class="kind-icon">⏳</div>
+        <div class="kind-label">Donate time</div>
+        <div class="kind-blurb">
+          Give hours to something that doesn't pay you.
+        </div>
+      </button>
+
+      <button
+        type="button"
+        class="kind-card"
+        data-testid="donate-resources"
+        (click)="chooseKind('resources')"
+      >
+        <div class="kind-icon">🎁</div>
+        <div class="kind-label">Donate resources</div>
+        <div class="kind-blurb">
+          Money, infra, materials — whatever you can spare.
+        </div>
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="step === 2">
+    <h2 class="wizard-title">
+      <ng-container *ngIf="kind === 'time'">Pick an activity</ng-container>
+      <ng-container *ngIf="kind === 'resources'">Pick what to give</ng-container>
+    </h2>
+    <p class="wizard-sub">
+      Any one of these counts. Start small — start this week.
+    </p>
+
+    <ul class="option-list">
+      <li *ngFor="let opt of currentOptions">
+        <button
+          type="button"
+          class="option-card"
+          [attr.data-testid]="'opt-' + opt.id"
+          (click)="chooseOption(opt)"
+        >
+          <span class="opt-icon">{{ opt.icon }}</span>
+          <span class="opt-body">
+            <span class="opt-label">{{ opt.label }}</span>
+            <span class="opt-blurb">{{ opt.blurb }}</span>
+          </span>
+        </button>
+      </li>
+    </ul>
+
+    <button
+      type="button"
+      class="wizard-back"
+      data-testid="wizard-back"
+      (click)="back()"
+    >← back</button>
+  </ng-container>
+
+  <ng-container *ngIf="step === 3 && selectedOption">
+    <h2 class="wizard-title">Good.</h2>
+    <p class="wizard-sub confirm-line">
+      You chose to
+      <strong *ngIf="kind === 'time'">give time to</strong>
+      <strong *ngIf="kind === 'resources'">donate</strong>
+      <em>{{ selectedOption.label }}</em>.
+    </p>
+    <p class="wizard-sub small">{{ selectedOption.blurb }}</p>
+
+    <div class="wizard-actions">
+      <button
+        type="button"
+        class="btn-ghost"
+        data-testid="wizard-back"
+        (click)="back()"
+      >← pick again</button>
+      <button
+        type="button"
+        class="btn-primary"
+        data-testid="wizard-confirm"
+        (click)="confirm()"
+      >I will do this</button>
+    </div>
+  </ng-container>
+</div>

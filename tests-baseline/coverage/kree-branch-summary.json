@@ -1,0 +1,168 @@
+{
+  "branches": {
+    "total": 173,
+    "covered": 156,
+    "pct": 90.17341040462428
+  },
+  "statements": {
+    "total": 1501,
+    "covered": 1426,
+    "pct": 95.00333111259161
+  },
+  "functions": {
+    "total": 211,
+    "covered": 196,
+    "pct": 92.89099526066352
+  },
+  "lines": {
+    "total": 1501,
+    "covered": 1426,
+    "pct": 95.00333111259161
+  },
+  "files": [
+    {
+      "file": "src/app/kree/kree.component.ts",
+      "branches": {
+        "total": 3,
+        "covered": 3
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/auth/auth.component.ts",
+      "branches": {
+        "total": 35,
+        "covered": 21
+      },
+      "percent": 60
+    },
+    {
+      "file": "src/app/kree/dashboard/dashboard-home.component.ts",
+      "branches": {
+        "total": 0,
+        "covered": 0
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/dashboard/dashboard.component.ts",
+      "branches": {
+        "total": 1,
+        "covered": 1
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/dashboard/impact.component.ts",
+      "branches": {
+        "total": 1,
+        "covered": 1
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/dashboard/leaderboard.component.ts",
+      "branches": {
+        "total": 1,
+        "covered": 1
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/dashboard/missions.component.ts",
+      "branches": {
+        "total": 1,
+        "covered": 1
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/donation-wizard/donation-wizard.component.ts",
+      "branches": {
+        "total": 14,
+        "covered": 14
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/drop-bomb/drop-bomb.component.ts",
+      "branches": {
+        "total": 8,
+        "covered": 8
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/landing/landing.component.ts",
+      "branches": {
+        "total": 4,
+        "covered": 4
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/pledge/pledge.component.ts",
+      "branches": {
+        "total": 5,
+        "covered": 5
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/pledge-page/pledge-page.component.ts",
+      "branches": {
+        "total": 4,
+        "covered": 4
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/question/question.component.ts",
+      "branches": {
+        "total": 20,
+        "covered": 20
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/services/auth.service.ts",
+      "branches": {
+        "total": 4,
+        "covered": 2
+      },
+      "percent": 50
+    },
+    {
+      "file": "src/app/kree/services/theme.service.ts",
+      "branches": {
+        "total": 17,
+        "covered": 17
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/this-moment/this-moment.component.ts",
+      "branches": {
+        "total": 15,
+        "covered": 15
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/typeaway/typeaway.component.ts",
+      "branches": {
+        "total": 11,
+        "covered": 11
+      },
+      "percent": 100
+    },
+    {
+      "file": "src/app/kree/your-name/your-name.component.ts",
+      "branches": {
+        "total": 29,
+        "covered": 28
+      },
+      "percent": 96.55172413793103
+    }
+  ]
+}

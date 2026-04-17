@@ -1,86 +1,133 @@
-/* You can add global styles to this file, and also import other style files */
+/* Kree — global styles. Dark is the default; light is the opt-in. */
+
+:root {
+  /* Dark (default) palette */
+  --kree-bg: #000000;
+  --kree-fg: #ffffff;
+  --kree-fg-muted: rgba(255, 255, 255, 0.65);
+  --kree-accent: #f5d77a;
+  --kree-accent-soft: rgba(245, 215, 122, 0.25);
+  --kree-surface: rgba(255, 255, 255, 0.06);
+  --kree-surface-strong: rgba(255, 255, 255, 0.14);
+  --kree-border: rgba(255, 255, 255, 0.35);
+  --kree-shadow: 0 6px 32px rgba(0, 0, 0, 0.55);
+
+  --kree-font: 'Gotham', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Breathing orb — high contrast on dark */
+  --kree-orb-center: rgba(245, 215, 122, 0.5);
+  --kree-orb-mid: rgba(245, 215, 122, 0.2);
+  --kree-orb-glow: rgba(245, 215, 122, 0.4);
+}
+
+[data-theme='light'] {
+  --kree-bg: #f7f4ec;
+  --kree-fg: #1a1a1a;
+  --kree-fg-muted: rgba(26, 26, 26, 0.68);
+  --kree-accent: #b4802a;
+  --kree-accent-soft: rgba(180, 128, 42, 0.18);
+  --kree-surface: rgba(26, 26, 26, 0.04);
+  --kree-surface-strong: rgba(26, 26, 26, 0.12);
+  --kree-border: rgba(26, 26, 26, 0.35);
+  --kree-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+
+  /* Breathing orb — warm tones on light bg */
+  --kree-orb-center: rgba(180, 128, 42, 0.45);
+  --kree-orb-mid: rgba(180, 128, 42, 0.18);
+  --kree-orb-glow: rgba(180, 128, 42, 0.3);
+}
+
+html,
 body {
-  font-family: 'gotham';
-	font-weight: 400;
-	font-style: normal;
-	margin: 0;
-	background-color: black;
-	color:white;
-	overflow: hidden;
-}
-
-.loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 50px;
-  height: 50px;
-  margin: -25px 0 0 -25px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 1s linear infinite;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #555;
-  border-radius: 50%;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Fonts*/
-@font-face {
-    font-family: "gotham";
-    src: url("assets/fonts/gotham-medium.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: "gotham-medium";
-    src: url("assets/fonts/gotham-medium.woff2") format("woff2"), url("assets/fonts/gotham-medium.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: "Gotham";
-    src: url("assets/fonts/gotham-light-webfont.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Gotham-light";
-    src: url("assets/fonts/gotham-light-webfont.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: "Gotham";
-    src: url("assets/fonts/gotham-bold-webfont.woff2") format("woff2");
-    font-weight: bold;
-    font-style: normal;
-}
-@font-face {
-    font-family: "Icons";
-    src: url("assets/fonts/icomoon.woff") format("woff"),
-         url("assets/fonts/icomoon.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Conv_SFNSDisplay-Regular';
-  src: url('assets/fonts/SFNSDisplay-Regular.eot');
-  src: local('☺'), url('assets/fonts/SFNSDisplay-Regular.woff') format('woff'), url('assets/fonts/SFNSDisplay-Regular.ttf') format('truetype'), url('assets/fonts/SFNSDisplay-Regular.svg') format('svg');
-  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--kree-bg);
+  color: var(--kree-fg);
+  font-family: var(--kree-font);
+  font-weight: 400;
   font-style: normal;
+  transition: background-color 600ms ease, color 600ms ease;
 }
 
+body.kree-body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0.4em 0;
+  font-weight: 300;
+}
+
+button,
+.btn {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Reusable animation helpers (replacing animate.css for the bits we actually use) */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes kreeFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes kreeFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes kreePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.fadeIn { animation-name: kreeFadeIn; }
+.fadeOut { animation-name: kreeFadeOut; opacity: 0; }
+.pulse { animation: kreePulse 1.2s ease-in-out infinite; }
+
+.hidden { opacity: 0; visibility: hidden; }
+
+/* Utility layout (replacing Bootstrap 3 grid classes with a minimal shim) */
+.container-fluid {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+}
+
+.row > [class^='col-'] {
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.col-xs-12 { flex: 0 0 100%; max-width: 100%; }
+.col-xs-4  { flex: 0 0 33.3333%; max-width: 33.3333%; }
+
+@media (min-width: 768px) {
+  .col-sm-offset-2 { margin-left: 16.6667%; }
+  .col-sm-8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+}
+
+@media (min-width: 992px) {
+  .col-md-offset-3 { margin-left: 25%; }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+}
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,91 @@
+.pledge-shell {
+  min-height: 100vh;
+  background: var(--kree-bg);
+  color: var(--kree-fg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Candle background — rule of thirds (right-third, lower-third) */
+.candle-bg {
+  position: fixed;
+  right: 10%;
+  bottom: 15%;
+  width: auto;
+  height: 55vh;
+  max-height: 500px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+  object-fit: contain;
+}
+
+.back-btn {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.5rem;
+  background: none;
+  border: 1px solid var(--kree-border);
+  color: var(--kree-fg);
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 5;
+  transition: border-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.back-btn:hover {
+  border-color: var(--kree-accent);
+  color: var(--kree-accent);
+}
+
+.pledge-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  padding: 4rem 2rem 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pledge-cta-wrap {
+  text-align: center;
+  padding: 1.5rem 1rem 3rem;
+  position: relative;
+  z-index: 3;
+}
+
+.pledge-cta {
+  font-size: 1.15rem;
+  color: var(--kree-fg);
+  background: transparent;
+  border: 2px solid var(--kree-accent);
+  border-radius: 20px;
+  padding: 0.7em 1.6em;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pledge-cta:hover {
+  background: var(--kree-accent);
+  color: var(--kree-bg);
+}
+
+@media (max-width: 767px) {
+  .candle-bg {
+    right: 5%;
+    bottom: 10%;
+    height: 40vh;
+  }
+  .pledge-content { padding: 3.5rem 1rem 1rem; }
+}

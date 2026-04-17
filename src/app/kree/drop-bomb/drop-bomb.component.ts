@@ -1,49 +1,46 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'drop-bomb',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './drop-bomb.component.html',
-  styleUrls: ['./drop-bomb.component.scss']
+  styleUrls: ['./drop-bomb.component.scss'],
 })
-export class DropBombComponent implements OnInit {
+export class DropBombComponent implements OnInit, OnDestroy {
+  @Input() text = '';
+  @Output() finished = new EventEmitter<void>();
 
-	@Input() text:string;
-	@Output() finished = new EventEmitter();
+  public label = '';
 
-	private startInterval:number = 2000;
-	private exitInterval:number= 1000;
-	private dropInterval:number = 1500;
+  private readonly startInterval = 2000;
+  private readonly dropInterval = 1500;
+  private timers: any[] = [];
 
-	private label:string;
+  ngOnInit(): void {
+    this.label = '';
+    this.timers.push(setTimeout(() => this.drop(), this.startInterval));
+  }
 
-  	constructor() { }
+  ngOnDestroy(): void {
+    this.timers.forEach((t) => clearTimeout(t));
+    this.timers = [];
+  }
 
-    ngOnInit() {
-		this.label = "";
-		
-		setTimeout(()=>{
-			this.dropNextWord();
-		}, this.startInterval);
-		
-  	}
- 
-  
-  dropNextWord(){
-  	let src =  this.text.split(' ');
-	let dst = this.label.split(' ');
-		
-	  if(this.label != this.text)
-	  {
-	  	this.label = this.text;
-		setTimeout(()=>{
-		this.dropNextWord();
-	  }, this.dropInterval);
-	  }
-	  else{
-		this.finished.emit();
-	  }
-	  
-
-  
+  drop(): void {
+    if (this.label !== this.text) {
+      this.label = this.text;
+      this.timers.push(setTimeout(() => this.drop(), this.dropInterval));
+    } else {
+      this.finished.emit();
+    }
   }
 }

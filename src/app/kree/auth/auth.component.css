@@ -1,0 +1,225 @@
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kree-bg);
+  color: var(--kree-fg);
+  padding: 1rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  margin-bottom: 2rem;
+}
+
+.auth-subtitle {
+  font-size: 1.1rem;
+  color: var(--kree-fg-muted);
+  margin-bottom: 0.25rem;
+}
+
+.auth-subtitle-hint {
+  font-size: 0.9rem;
+  color: var(--kree-fg-muted);
+  margin-bottom: 1.5rem;
+}
+
+.auth-identifier-display {
+  font-size: 0.95rem;
+  color: var(--kree-accent);
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  margin-top: 1.5rem;
+}
+
+.input-group.phone-mode .auth-input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 0.8rem;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--kree-surface);
+  color: var(--kree-fg);
+  border: 1px solid var(--kree-border);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  border-color: var(--kree-accent);
+}
+
+.auth-input::placeholder {
+  color: var(--kree-fg-muted);
+}
+
+.country-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.75rem;
+  background: var(--kree-surface-strong);
+  border: 1px solid var(--kree-border);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  color: var(--kree-fg);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.country-picker:hover {
+  background: var(--kree-surface);
+}
+
+.caret {
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.country-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 280px;
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--kree-bg);
+  border: 1px solid var(--kree-border);
+  border-radius: 12px;
+  z-index: 100;
+  margin-top: 4px;
+  box-shadow: var(--kree-shadow);
+}
+
+.country-dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+
+.country-dropdown::-webkit-scrollbar-thumb {
+  background: var(--kree-border);
+  border-radius: 4px;
+}
+
+.country-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+
+.country-option:hover,
+.country-option.selected {
+  background: var(--kree-surface-strong);
+}
+
+.country-flag {
+  font-size: 1.1rem;
+}
+
+.country-name {
+  flex: 1;
+}
+
+.country-code {
+  color: var(--kree-fg-muted);
+  font-size: 0.85rem;
+}
+
+.input-hint {
+  font-size: 0.8rem;
+  color: var(--kree-fg-muted);
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.auth-btn {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--kree-bg);
+  background: var(--kree-accent);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.auth-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.auth-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.auth-link {
+  background: none;
+  border: none;
+  color: var(--kree-fg-muted);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.4rem;
+  transition: color 0.2s;
+}
+
+.auth-link:hover {
+  color: var(--kree-accent);
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .auth-title { font-size: 1.8rem; }
+  .auth-card { padding: 0 0.5rem; }
+}

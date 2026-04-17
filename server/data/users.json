@@ -1,0 +1,22 @@
+[
+  {
+    "id": "admin-001",
+    "name": "Admin",
+    "email": "admin@kree.org",
+    "phone": "+1234567890",
+    "password": "b7ad24fdb09748cba9012ad01cab88ef3f17a2279a56d0bd6fdc04883ff4b320aa83206b9278812b5e134a308fec8ff08b9130dcfbf4e02ba650a9753bd9bbfcfd1beb1e7d69a9b97778568f2c826c486330233f4ee8b2bc981c7d5577eebb30555f45debea57c2d8f414b08ead8b0ef874241e5db716fe57e08df55c1296c1d",
+    "salt": "5Tbrp/oO069XNoai+os4mIzYJ8aD3ZfzCdUT1A6t6SwztGHZ8JbiaetR/1Zl/dTDmXxQvI2i7OL7IeYtFW0k1yEFJWw3uQ7V7h5QKarYaiW2D9EzTYimCq4BswP8fSNcKo8IbwG2ifA15YO2f8w+BjbvhTZ7eWpX1WsQWSxwzkg=",
+    "active": true,
+    "createdAt": "2026-04-14T17:00:22.644Z"
+  },
+  {
+    "id": "0f9b02c4d628ef9eb034ac534f96c1e9",
+    "name": "",
+    "email": "vikrant.siwach@gmail.com",
+    "phone": "",
+    "password": "4d19d6ba64c44568e90f8f290a362359b9d1bb20520321a4fa3be933588a80db30cdee13bf71a2207c11b98700d2aa37a77afe7c8f92337bf09902aa5abb019141a420df372bf2c9fec9af36cb348cbb7cf234a0a8a1dd3dbea8e0ae9a290999572075de7290944cbfcddc57a57e8c9585b8ca90c46bf017be1f671137e5ba80",
+    "salt": "swGsFxi6nGxGcDXiDSpDHwH2Tr2CtdqRnP3KMfz5s3PDLypwEPifN6zvD4re4N/JY2GtCQTr/HAEfamsopLL5/adSJLRyVoTunvg+WQ+ieG2dVhiNMjPvGx0HVWvbtxKSWJK3JoNe+IBI4bvsSKHXx24trrWQ1tQAv5dF+oVFoU=",
+    "active": true,
+    "createdAt": "2026-04-14T17:02:16.726Z"
+  }
+]

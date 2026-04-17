@@ -1,0 +1,30 @@
+<div class="dash-shell">
+  <nav class="dash-nav">
+    <div class="nav-brand">Kree.</div>
+    <ul class="nav-list">
+      <li
+        *ngFor="let item of navItems"
+        class="nav-item"
+        [class.active]="isActive(item.route)"
+      >
+        <a [routerLink]="item.route" class="nav-link">
+          <i class="fa" [ngClass]="item.icon"></i>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-footer">
+      <button class="nav-action" (click)="toggleTheme()">
+        <i class="fa" [ngClass]="theme() === 'dark' ? 'fa-moon-o' : 'fa-sun-o'"></i>
+        <span class="nav-label">{{ theme() === 'dark' ? 'Dark' : 'Light' }}</span>
+      </button>
+      <button class="nav-action" (click)="logout()" data-testid="logout-btn">
+        <i class="fa fa-sign-out"></i>
+        <span class="nav-label">Logout</span>
+      </button>
+    </div>
+  </nav>
+  <main class="dash-main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

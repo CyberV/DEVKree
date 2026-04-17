@@ -1,0 +1,37 @@
+{
+  "name": "kree",
+  "version": "2.0.0",
+  "description": "Kree — Act Now. Angular 17 rewrite.",
+  "license": "MIT",
+  "author": "Vlado Tešanović (original), Angular 17 upgrade",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --host 127.0.0.1 --port 4200",
+    "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "test": "ng test --watch=false --browsers=ChromeHeadless",
+    "e2e:puppeteer": "node tests-baseline/run.js",
+    "coverage": "node tests-baseline/run.js --coverage"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "compression": "^1.8.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "node-uuid": "^1.4.8",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.6.0",
+    "zone.js": "~0.14.4"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/express": "^4.17.25",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.11.0",
+    "c8": "^11.0.0",
+    "puppeteer": "^22.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "~5.4.0"
+  }
+}

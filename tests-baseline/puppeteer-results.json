@@ -1,0 +1,42 @@
+{
+  "passed": 7,
+  "failed": 0,
+  "total": 7,
+  "results": [
+    {
+      "name": "app mounts and renders the Kree header",
+      "status": "pass",
+      "ms": 1798
+    },
+    {
+      "name": "html gets data-theme=\"dark\" by default",
+      "status": "pass",
+      "ms": 1152
+    },
+    {
+      "name": "theme toggle flips dark → light",
+      "status": "pass",
+      "ms": 1878
+    },
+    {
+      "name": "breathe-orb is visible on the intro",
+      "status": "pass",
+      "ms": 1084
+    },
+    {
+      "name": "full flow (time branch): Take a pledge → wizard → time → mentor → thank you",
+      "status": "pass",
+      "ms": 75855
+    },
+    {
+      "name": "full flow (resources branch): Donate money → thank you",
+      "status": "pass",
+      "ms": 75857
+    },
+    {
+      "name": "wizard back-button unwinds step 3 → step 2 → step 1",
+      "status": "pass",
+      "ms": 75979
+    }
+  ]
+}

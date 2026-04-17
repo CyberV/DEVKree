@@ -1,71 +1,102 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { QuestionComponent } from '../question/question.component';
 
 @Component({
   selector: 'this-moment',
+  standalone: true,
+  imports: [CommonModule, QuestionComponent],
   templateUrl: './this-moment.component.html',
-  styleUrls: ['./this-moment.component.css']
+  styleUrls: ['./this-moment.component.css'],
 })
-export class ThisMomentComponent implements OnInit {
+export class ThisMomentComponent implements OnInit, OnDestroy {
+  public firstAnswered = false;
+  public secondAnswered = false;
+  public isMobile = false;
 
-private firstAnswered:boolean;
-private secondAnswered:boolean;
-private isMobile:boolean;
+  public begin = false;
+  public paused = false;
+  public ready = false;
+  public showCta = false;
 
-private begin;
-private paused;
-private ready;
+  /** drives the breathe-in / breathe-out visual — loops continuously */
+  public breathe: 'in' | 'out' | 'idle' = 'idle';
 
-@Output() answered = new EventEmitter();
+  @Output() answered = new EventEmitter<boolean>();
 
-  constructor() {
-	this.firstAnswered = false;
-	this.secondAnswered = false;
-	this.isMobile = false;
+  private timers: any[] = [];
+  private resetTimer: any = null;
 
-  this.begin=false;
-  this.paused = false;
-  this.ready = false;
+  ngOnInit(): void {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      this.isMobile = true;
+    }
+
+    this.startSequence();
   }
 
-  ngOnInit() {
-	if(window.innerWidth < 768)
-		this.isMobile = true;
-
-  setTimeout(()=>{
-    this.begin = true;
-
-    setTimeout(()=>{
-    this.paused = true;
-
-    setTimeout(()=>{
-    this.ready = true;
-  }, 2000);
-
-
-  }, 2000);
-
-  }, 1500);
-
+  ngOnDestroy(): void {
+    this.timers.forEach((t) => clearTimeout(t));
+    this.timers = [];
+    if (this.resetTimer) clearTimeout(this.resetTimer);
   }
 
-  next(){
+  private startSequence(): void {
+    // Start breathing immediately — runs continuously
+    this.breathe = 'in';
 
-    let ans = document.getElementsByClassName('a');
+    this.timers.push(
+      setTimeout(() => {
+        this.begin = true;
 
-    document.getElementsByClassName('q')[0].className += " fadeOut";
-    setTimeout(()=>{
-      document.getElementsByClassName('q')[1].className += " fadeOut";
-      ans[1].style.marginTop='-4em';
-      document.getElementsByClassName('q')[2].className += " fadeOut    ";
-      setTimeout(()=>{
-        ans[2].style.marginTop='-4em';
-        setTimeout(()=>{
-          this.answered.emit(true);
-        },2500)
-            
-      },2000)
-    }, 2000)
-    
+        this.timers.push(
+          setTimeout(() => {
+            this.paused = true;
+            this.breathe = 'out';
+
+            this.timers.push(
+              setTimeout(() => {
+                this.ready = true;
+                // Keep breathing — alternate between in/out continuously
+                this.breathe = 'in';
+              }, 2000),
+            );
+          }, 2000),
+        );
+      }, 1500),
+    );
   }
 
+  next(): void {
+    // Show CTA, questions stay visible
+    this.showCta = true;
+    this.answered.emit(true);
+
+    // After 10 seconds of CTA visibility, reset the entire flow
+    this.resetTimer = setTimeout(() => this.resetFlow(), 10000);
+  }
+
+  private resetFlow(): void {
+    // Clear everything
+    this.timers.forEach((t) => clearTimeout(t));
+    this.timers = [];
+
+    // Reset state
+    this.firstAnswered = false;
+    this.secondAnswered = false;
+    this.begin = false;
+    this.paused = false;
+    this.ready = false;
+    this.showCta = false;
+    this.breathe = 'idle';
+
+    // Restart the entire sequence
+    this.startSequence();
+  }
 }

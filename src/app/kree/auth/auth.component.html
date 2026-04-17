@@ -1,0 +1,132 @@
+<div class="auth-shell">
+  <div class="auth-card">
+    <h1 class="auth-title">Kree.</h1>
+
+    <!-- Step 1: Identifier -->
+    <div *ngIf="step === 'identifier'" class="auth-step animated fadeIn">
+      <p class="auth-subtitle">Enter your email or phone number</p>
+
+      <div class="input-group" [class.phone-mode]="identifierType === 'phone'">
+        <button
+          *ngIf="identifierType === 'phone'"
+          type="button"
+          class="country-picker"
+          (click)="toggleCountryDropdown($event)"
+          data-testid="country-picker"
+        >
+          <span class="country-flag">{{ selectedCountry.flag }}</span>
+          <span class="country-code">{{ selectedCountry.code }}</span>
+          <span class="caret">&#9662;</span>
+        </button>
+
+        <div *ngIf="showCountryDropdown" class="country-dropdown" data-testid="country-dropdown">
+          <div
+            *ngFor="let c of countries"
+            class="country-option"
+            [class.selected]="c.code === selectedCountry.code"
+            (click)="selectCountry(c, $event)"
+          >
+            <span class="country-flag">{{ c.flag }}</span>
+            <span class="country-name">{{ c.name }}</span>
+            <span class="country-code">{{ c.code }}</span>
+          </div>
+        </div>
+
+        <input
+          type="text"
+          class="auth-input"
+          [placeholder]="identifierType === 'phone' ? 'Phone number' : 'Email or phone number'"
+          [(ngModel)]="identifier"
+          (ngModelChange)="detectType()"
+          (keydown.enter)="onIdentifierSubmit()"
+          data-testid="auth-identifier"
+          autocomplete="off"
+        />
+      </div>
+
+      <p *ngIf="identifierType === 'phone'" class="input-hint">
+        Select your country code, then enter your number
+      </p>
+
+      <p *ngIf="errorMsg" class="error-msg" data-testid="auth-error">{{ errorMsg }}</p>
+
+      <button
+        type="button"
+        class="auth-btn"
+        [disabled]="!identifierValid || loading"
+        (click)="onIdentifierSubmit()"
+        data-testid="auth-continue"
+      >
+        <span *ngIf="!loading">Continue</span>
+        <span *ngIf="loading" class="spinner"></span>
+      </button>
+    </div>
+
+    <!-- Step 2a: Login (existing user) -->
+    <div *ngIf="step === 'login-password'" class="auth-step animated fadeIn">
+      <p class="auth-subtitle">Welcome back</p>
+      <p class="auth-identifier-display">{{ displayIdentifier }}</p>
+
+      <input
+        type="password"
+        class="auth-input"
+        placeholder="Enter your password"
+        [(ngModel)]="password"
+        (keydown.enter)="onLoginSubmit()"
+        data-testid="auth-password"
+        autocomplete="current-password"
+      />
+
+      <p *ngIf="errorMsg" class="error-msg" data-testid="auth-error">{{ errorMsg }}</p>
+
+      <button
+        type="button"
+        class="auth-btn"
+        [disabled]="!passwordValid || loading || locked"
+        (click)="onLoginSubmit()"
+        data-testid="auth-login"
+      >
+        <span *ngIf="!loading">Sign in</span>
+        <span *ngIf="loading" class="spinner"></span>
+      </button>
+
+      <button type="button" class="auth-link" (click)="goBack()" data-testid="auth-back">
+        Use a different account
+      </button>
+    </div>
+
+    <!-- Step 2b: Signup (new user) -->
+    <div *ngIf="step === 'signup-password'" class="auth-step animated fadeIn">
+      <p class="auth-subtitle">You're new here!</p>
+      <p class="auth-subtitle-hint">Create a password to sign up</p>
+      <p class="auth-identifier-display">{{ displayIdentifier }}</p>
+
+      <input
+        type="password"
+        class="auth-input"
+        placeholder="Create a password (min 6 characters)"
+        [(ngModel)]="password"
+        (keydown.enter)="onSignupSubmit()"
+        data-testid="auth-password"
+        autocomplete="new-password"
+      />
+
+      <p *ngIf="errorMsg" class="error-msg" data-testid="auth-error">{{ errorMsg }}</p>
+
+      <button
+        type="button"
+        class="auth-btn"
+        [disabled]="!passwordValid || loading"
+        (click)="onSignupSubmit()"
+        data-testid="auth-signup"
+      >
+        <span *ngIf="!loading">Sign up</span>
+        <span *ngIf="loading" class="spinner"></span>
+      </button>
+
+      <button type="button" class="auth-link" (click)="goBack()" data-testid="auth-back">
+        Use a different account
+      </button>
+    </div>
+  </div>
+</div>

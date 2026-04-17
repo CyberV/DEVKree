@@ -1,0 +1,31 @@
+<div class="kree-shell">
+  <header class="kree-header">
+    <span class="brand">Kree.</span>
+    <button
+      type="button"
+      class="theme-toggle"
+      data-testid="theme-toggle"
+      (click)="toggleTheme()"
+      [attr.aria-label]="'Toggle dark mode — currently ' + theme()"
+    >
+      <span *ngIf="theme() === 'dark'">dark</span>
+      <span *ngIf="theme() === 'light'">light</span>
+    </button>
+  </header>
+
+  <main class="landing-main">
+    <this-moment (answered)="onAnswered($event)"></this-moment>
+
+    <div
+      *ngIf="beginPledge"
+      class="take-pledge-wrap animated fadeIn"
+    >
+      <button
+        type="button"
+        class="btn pledge-btn"
+        data-testid="take-pledge"
+        (click)="goToPledge()"
+      >Take a pledge</button>
+    </div>
+  </main>
+</div>

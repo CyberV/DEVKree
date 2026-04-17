@@ -1,0 +1,25 @@
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+- Copying assets...
+✔ Copying assets complete.
+- Generating index html...
+✔ Index html generation complete.
+
+Initial chunk files           | Names         |  Raw size | Estimated transfer size
+main.893e98c78ca3a0e5.js      | main          | 226.26 kB |                60.22 kB
+polyfills.816cc49ec302498a.js | polyfills     |  33.98 kB |                11.06 kB
+styles.c36cab1b8c3d8596.css   | styles        |   1.94 kB |               729 bytes
+runtime.7e9a43740ee2580b.js   | runtime       | 886 bytes |               510 bytes
+
+                              | Initial total | 263.04 kB |                72.49 kB
+
+Build at: 2026-04-13T08:27:28.632Z - Hash: 261137c2de1678c4 - Time: 24412ms
+
+Warning: /mnt/c/da/13-04-26/b/DEVKree/src/environments/environment.prod.ts is part of the TypeScript compilation but it's unused.
+Add only entry points to the 'files' or 'include' properties in your tsconfig.
+
+Warning: /mnt/c/da/13-04-26/b/DEVKree/src/environments/environment.ts is part of the TypeScript compilation but it's unused.
+Add only entry points to the 'files' or 'include' properties in your tsconfig.
+
+

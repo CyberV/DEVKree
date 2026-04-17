@@ -1,28 +1,31 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-kree',
-  templateUrl: './kree.component.html',
-  styleUrls: ['./kree.component.css']
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+  ],
+  template: '<router-outlet></router-outlet>',
+  styles: [':host { display: block; }'],
 })
 export class KreeComponent implements OnInit {
+  private readonly themeService = inject(ThemeService);
+  public readonly theme = this.themeService.theme;
 
-private beginPledge:boolean;
-private doPledge:boolean;
-
-@ViewChild('hand') hand:ElementRef;
-
-  constructor(private el:ElementRef) {
-
-  	this.beginPledge = false;
-  	this.doPledge = false;
+  ngOnInit(): void {
+    this.themeService.init();
   }
 
-  ngOnInit() {
+  toggleTheme(): void {
+    this.themeService.toggle();
   }
-
-  alert(){
-  	this.hand.nativeElement.css.top = '-20px';
-  }
-
 }

@@ -1,0 +1,33 @@
+<div class="pledge-shell">
+  <img
+    class="candle-bg"
+    src="assets/img/candle.gif"
+    alt=""
+    aria-hidden="true"
+  />
+
+  <button
+    type="button"
+    class="back-btn"
+    (click)="goBack()"
+    data-testid="pledge-back"
+  >
+    <i class="fa fa-arrow-left"></i> Back
+  </button>
+
+  <div class="pledge-content">
+    <pledge (pledgeDone)="onPledgeDone()"></pledge>
+  </div>
+
+  <div
+    *ngIf="pledgeComplete"
+    class="pledge-cta-wrap animated fadeIn"
+  >
+    <button
+      type="button"
+      class="pledge-cta"
+      data-testid="pledge-cta"
+      (click)="goToAuth()"
+    >I want to help change the world.</button>
+  </div>
+</div>

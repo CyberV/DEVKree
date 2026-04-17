@@ -1,0 +1,92 @@
+  ✔ ThemeService: starts dark when no system preference and no stored value
+  ✔ ThemeService: starts light when system prefers light and no stored value
+  ✔ ThemeService: respects a previously-stored light preference
+  ✔ ThemeService: respects a previously-stored dark preference
+  ✔ ThemeService: ignores a garbage stored value
+  ✔ ThemeService: toggle flips dark→light and persists
+  ✔ ThemeService: toggle flips light→dark
+  ✔ ThemeService: set() applies mode directly
+  ✔ ThemeService: set() survives localStorage exceptions
+  ✔ ThemeService: init() survives when window is missing matchMedia
+  ✔ ThisMoment: sets isMobile=true when viewport is narrow
+  ✔ ThisMoment: leaves isMobile=false on a wide viewport
+  ✔ ThisMoment: isMobile is left alone when window.innerWidth is undefined
+  ✔ ThisMoment: Pause → Take a breath → ready sequence advances on timers
+  ✔ ThisMoment: next() sets showCta=true and emits answered
+  ✔ ThisMoment: flow resets after 10 seconds of CTA visibility
+  ✔ ThisMoment: ngOnDestroy clears pending timers without firing them
+  ✔ Question: types out q one character at a time
+  ✔ Question: pulses three question marks after typing
+  ✔ Question: auto-emits answered after full pulse + prompt + 1.5s
+  ✔ Question: manual onClick() short-circuits the auto-answer
+  ✔ YourName: cycles through every "I"-script and then shows the input
+  ✔ YourName: moveOn() sets hasName=true and starts typeaway for "am here now"
+  ✔ YourName: checkName(key) schedules moveOn() when name settles
+  ✔ YourName: checkName(key) does NOT fire when the name keeps changing
+  ✔ YourName: checkName() ignores an empty value
+  ✔ YourName: onNameInput resizes input based on name length
+  ✔ YourName: empty name resets input width to 300
+  ✔ YourName: ngOnDestroy clears pending timers
+  ✔ Typeaway: types text one character at a time
+  ✔ Typeaway: emits finished when text is fully typed
+  ✔ Typeaway: comma triggers an 8× delay before the next character
+  ✔ Typeaway: default text is used when none provided
+  ✔ Typeaway: ngOnDestroy cancels typing
+  ✔ DropBomb: sets label to full text on first drop then emits finished
+  ✔ DropBomb: ngOnDestroy cancels the pending drop
+  ✔ Pledge: all gate flags default to false
+  ✔ Pledge: onGoodDone sets great=true after 800ms delay
+  ✔ Pledge: onFinalLine sets ineed and emits pledgeDone after 3s
+  ✔ Wizard: step 1 → choose "time" advances to step 2 with time options
+  ✔ Wizard: step 1 → choose "resources" advances to step 2 with resource options
+  ✔ Wizard: chooseOption advances to confirm step
+  ✔ Wizard: back() on step 3 returns to step 2 and clears selection
+  ✔ Wizard: back() on step 2 returns to step 1 and clears kind
+  ✔ Wizard: back() on step 1 is a no-op
+  ✔ Wizard: confirm() emits a DonationChoice for time
+  ✔ Wizard: confirm() emits a DonationChoice for resources
+  ✔ Wizard: confirm() on step 1 is a no-op (no kind/option yet)
+  ✔ Wizard: currentOptions defaults to resource options when kind is null
+  ✔ Wizard: time and resource options are both non-empty
+  ✔ Kree: root component instantiates and inits theme
+  ✔ Kree: toggleTheme() delegates to ThemeService
+  ✔ Auth: defaults to identifier step
+  ✔ Auth: detectType sets email for addresses with @
+  ✔ Auth: detectType sets phone for numeric input
+  ✔ Auth: detectType sets empty for blank input
+  ✔ Auth: identifierValid returns true for valid email
+  ✔ Auth: identifierValid returns false for invalid email
+  ✔ Auth: identifierValid returns true for valid phone
+  ✔ Auth: identifierValid returns false for short phone
+  ✔ Auth: passwordValid requires minimum 6 characters
+  ✔ Auth: goBack resets to identifier step
+  ✔ Auth: onIdentifierSubmit moves to signup-password when user not found
+  ✔ Auth: onIdentifierSubmit moves to login-password when user exists
+  ✔ Auth: onLoginSubmit navigates to dashboard on success
+  ✔ Auth: onLoginSubmit increments attempts on wrong password
+  ✔ Auth: locks after 3 failed attempts
+  ✔ Auth: onSignupSubmit navigates to dashboard on success
+  ✔ Auth: displayIdentifier includes country code for phone type
+  ✔ Auth: country picker has at least 10 countries
+  ✔ Dashboard: has 4 nav items
+  ✔ Dashboard: nav items have icons
+  ✔ Dashboard: nav items have routes
+  ✔ DashboardHome: component instantiates
+  ✔ Missions: has missions data
+  ✔ Impact: has impact categories
+  ✔ Leaderboard: has leaderboard data
+  ✔ Landing: defaults beginPledge to false
+  ✔ Landing: onAnswered sets beginPledge
+  ✔ Landing: toggleTheme flips the theme
+  ✔ PledgePage: defaults pledgeComplete to false
+  ✔ PledgePage: onPledgeDone sets pledgeComplete
+  ✔ PledgePage: goBack calls location.back()
+  ✔ PledgePage: goToAuth navigates to /auth
+
+Tests: 84 passed, 0 failed, 84 total
+
+Coverage:
+  Branches   : 90.17% (156/173)
+  Statements : 95.00% (1426/1501)
+  Functions  : 92.89% (196/211)
+  Lines      : 95.00% (1426/1501)

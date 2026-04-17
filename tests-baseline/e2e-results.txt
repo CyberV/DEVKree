@@ -1,0 +1,11 @@
+Starting static server + headless Chrome…
+  ✔ app mounts and renders the Kree header
+  ✔ html gets data-theme="dark" by default
+  ✔ theme toggle flips dark → light
+  ✔ breathe-orb is visible on the intro
+  ✔ full flow (time branch): Take a pledge → wizard → time → mentor → thank you
+  ✔ full flow (resources branch): Donate money → thank you
+  ✔ wizard back-button unwinds step 3 → step 2 → step 1
+
+Puppeteer: 7 passed, 0 failed, 7 total
+Wrote /mnt/c/da/13-04-26/b/DEVKree/tests-baseline/puppeteer-results.json
